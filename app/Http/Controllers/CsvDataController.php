@@ -91,7 +91,7 @@ class CsvDataController extends Controller
                 'user' => $user->name,
             ];
 
-            Mail::send('emails.reminder', $details, function ($message) use ($user, $csvData) {
+            Mail::send('emails.reminder', $details, function ($message) use ($user) {
                 $message->to($user->email)
                     ->subject('Reminder: Document Expiration')
                     ->from('hello@example.com', 'Document Management System');
